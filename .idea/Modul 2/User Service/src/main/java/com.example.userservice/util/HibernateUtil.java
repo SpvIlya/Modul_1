@@ -12,7 +12,6 @@ public class HibernateUtil {
 
     private static SessionFactory buildSessionFactory() {
         try {
-            // Load configuration from hibernate.cfg.xml
             Configuration configuration = new Configuration();
             configuration.configure("hibernate.cfg.xml");
             configuration.addAnnotatedClass(com.example.userservice.entity.User.class);

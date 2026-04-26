@@ -82,15 +82,15 @@ public class ConsoleApp {
         try {
             int age = Integer.parseInt(ageStr);
             User user = userService.createUser(name, email, age);
-            System.out.println("✓ User created successfully!");
-            System.out.println("  User details: " + user);
+            System.out.println("User created successfully!");
+            System.out.println("User details: " + user);
         } catch (NumberFormatException e) {
-            System.out.println("✗ Error: Invalid age format. Please enter a number.");
+            System.out.println("Error: Invalid age format. Please enter a number.");
         } catch (IllegalArgumentException | IllegalStateException e) {
-            System.out.println("✗ Error: " + e.getMessage());
+            System.out.println("Error: " + e.getMessage());
         } catch (Exception e) {
             logger.error("Unexpected error during user creation", e);
-            System.out.println("✗ Unexpected error occurred. Check logs for details.");
+            System.out.println("Unexpected error occurred. Check logs for details.");
         }
     }
 
@@ -104,18 +104,18 @@ public class ConsoleApp {
             Optional<User> userOpt = userService.getUserById(id);
 
             if (userOpt.isPresent()) {
-                System.out.println("✓ User found:");
+                System.out.println("User found:");
                 System.out.println("  " + userOpt.get());
             } else {
-                System.out.println("✗ User with ID " + id + " not found.");
+                System.out.println("User with ID " + id + " not found.");
             }
         } catch (NumberFormatException e) {
-            System.out.println("✗ Error: Invalid ID format. Please enter a number.");
+            System.out.println("Error: Invalid ID format. Please enter a number.");
         } catch (IllegalArgumentException e) {
-            System.out.println("✗ Error: " + e.getMessage());
+            System.out.println("Error: " + e.getMessage());
         } catch (Exception e) {
             logger.error("Unexpected error during find user", e);
-            System.out.println("✗ Unexpected error occurred. Check logs for details.");
+            System.out.println("Unexpected error occurred. Check logs for details.");
         }
     }
 
@@ -139,7 +139,7 @@ public class ConsoleApp {
             }
         } catch (Exception e) {
             logger.error("Unexpected error during show all users", e);
-            System.out.println("✗ Unexpected error occurred. Check logs for details.");
+            System.out.println("Unexpected error occurred. Check logs for details.");
         }
     }
 
@@ -154,7 +154,7 @@ public class ConsoleApp {
             // Check if user exists
             Optional<User> existingUser = userService.getUserById(id);
             if (existingUser.isEmpty()) {
-                System.out.println("✗ User with ID " + id + " not found.");
+                System.out.println("User with ID " + id + " not found.");
                 return;
             }
 
@@ -178,16 +178,16 @@ public class ConsoleApp {
             }
 
             User updatedUser = userService.updateUser(id, name, email, age);
-            System.out.println("✓ User updated successfully!");
-            System.out.println("  Updated details: " + updatedUser);
+            System.out.println("User updated successfully!");
+            System.out.println("Updated details: " + updatedUser);
 
         } catch (NumberFormatException e) {
-            System.out.println("✗ Error: Invalid ID or age format.");
+            System.out.println("Error: Invalid ID or age format.");
         } catch (IllegalArgumentException | IllegalStateException e) {
-            System.out.println("✗ Error: " + e.getMessage());
+            System.out.println("Error: " + e.getMessage());
         } catch (Exception e) {
             logger.error("Unexpected error during update user", e);
-            System.out.println("✗ Unexpected error occurred. Check logs for details.");
+            System.out.println("Unexpected error occurred. Check logs for details.");
         }
     }
 
@@ -202,7 +202,7 @@ public class ConsoleApp {
             // Check if user exists
             Optional<User> userOpt = userService.getUserById(id);
             if (userOpt.isEmpty()) {
-                System.out.println("✗ User with ID " + id + " not found.");
+                System.out.println("User with ID " + id + " not found.");
                 return;
             }
 
@@ -214,21 +214,21 @@ public class ConsoleApp {
             if (confirm.equals("yes") || confirm.equals("y")) {
                 boolean deleted = userService.deleteUser(id);
                 if (deleted) {
-                    System.out.println("✓ User with ID " + id + " has been deleted.");
+                    System.out.println("User with ID " + id + " has been deleted.");
                 } else {
-                    System.out.println("✗ Failed to delete user.");
+                    System.out.println("Failed to delete user.");
                 }
             } else {
                 System.out.println("Deletion cancelled.");
             }
 
         } catch (NumberFormatException e) {
-            System.out.println("✗ Error: Invalid ID format.");
+            System.out.println("Error: Invalid ID format.");
         } catch (IllegalArgumentException e) {
-            System.out.println("✗ Error: " + e.getMessage());
+            System.out.println("Error: " + e.getMessage());
         } catch (Exception e) {
             logger.error("Unexpected error during delete user", e);
-            System.out.println("✗ Unexpected error occurred. Check logs for details.");
+            System.out.println("Unexpected error occurred. Check logs for details.");
         }
     }
 }
