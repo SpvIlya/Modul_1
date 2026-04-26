@@ -8,11 +8,10 @@
 /dataSources.local.xml
 # Editor-based HTTP Client requests
 /httpRequests/
-Java-Intensive.iml
-compiler.xml
-encodings.xml
-jarRepositories.xml
-misc.xml
-modules.xml
-vcs.xml
-workspace.xml
+/Java-Intensive.iml
+/compiler.xml
+/encodings.xml
+/jarRepositories.xml
+/misc.xml
+/modules.xml
+/vcs.xml
